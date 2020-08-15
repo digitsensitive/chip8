@@ -1,0 +1,8 @@
+{
+    "C_Cpp.clang_format_style": "file",
+    "files.associations": {
+        "new": "cpp",
+        "__node_handle": "cpp",
+        "ios": "cpp"
+    },
+}
