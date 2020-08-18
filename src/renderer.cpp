@@ -29,9 +29,9 @@ bool Renderer::isCurrentDisplayModeValid() {
 bool Renderer::initialize(const char *windowTitle, const int windowWidth,
                           const int windowHeight) {
   // Set the classes private window properties
-  mWindowTitle = windowTitle;
-  mWindowWidth = windowWidth;
-  mWindowHeight = windowHeight;
+  mWindowSettings.title = windowTitle;
+  mWindowSettings.width = windowWidth;
+  mWindowSettings.height = windowHeight;
 
   // Returns zero on success or a negative error code on failure
   if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -45,9 +45,9 @@ bool Renderer::initialize(const char *windowTitle, const int windowWidth,
   };
 
   // Create our window with title, position, size and flags
-  mWindow = SDL_CreateWindow(mWindowTitle, SDL_WINDOWPOS_CENTERED,
-                             SDL_WINDOWPOS_CENTERED, mWindowWidth,
-                             mWindowHeight, SDL_WINDOW_BORDERLESS);
+  mWindow = SDL_CreateWindow(mWindowSettings.title, SDL_WINDOWPOS_CENTERED,
+                             SDL_WINDOWPOS_CENTERED, mWindowSettings.width,
+                             mWindowSettings.height, SDL_WINDOW_BORDERLESS);
 
   // Check if we have a window
   if (mWindow == nullptr) {

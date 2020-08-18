@@ -3,6 +3,12 @@
 
 #include "chip8.h"
 
+struct WindowSettings {
+  const char *title;
+  int width;
+  int height;
+};
+
 class Renderer {
  public:
   Renderer();
@@ -31,8 +37,7 @@ class Renderer {
   // and driver-specific data
   SDL_DisplayMode current;
 
-  const char *mWindowTitle;
-  int mWindowWidth;
-  int mWindowHeight;
+  WindowSettings mWindowSettings;
+
   uint8_t screenData[32][64][3];
 };
