@@ -1,5 +1,7 @@
 #pragma once
 
+#include "chip8_types.h"
+
 class Chip8 {
  public:
   Chip8();
@@ -10,10 +12,10 @@ class Chip8 {
   bool loadApplication(const char* filename);
 
   // Total amount of pixels: 2048
-  unsigned char gfx[64 * 32];
+  u8 gfx[64 * 32];
 
   // Keyboard, HEX based keypad (0x0-0xF)
-  unsigned char key[16];
+  u8 key[16];
 
   bool getDrawFlag() { return drawFlag; }
   void setDrawFlag(bool flag) { drawFlag = flag; }
@@ -21,30 +23,28 @@ class Chip8 {
  private:
   bool drawFlag;
 
-  // Program counter (pc) (can have value from 0x000 to 0xFFF)
-  unsigned short pc;
-  unsigned short currentOpcode;
+  // Program counter (pc)
+  u16 pc;
+  u16 currentOpcode;
 
-  // Index register I (can have a value from 0x000 to 0xFFF)
-  unsigned short I;
+  // Index register I
+  u16 I;
 
   // Stack pointer
-  unsigned short sp;
+  u16 sp;
 
   // CPU Registers (V0 - VF)
-  unsigned char V[16];
+  u8 V[16];
 
-  // unsigned short = 2 bytes
   // Stack (16 levels)
-  unsigned short stack[16];
+  u16 stack[16];
 
   // Memory (size = 4k)
-  // unsigned char = 1 byte = 8 bits = 0 to 255
-  unsigned char memory[4096];
+  u8 memory[4096];
 
   // Timers
-  unsigned char delay_timer;
-  unsigned char sound_timer;
+  u8 delay_timer;
+  u8 sound_timer;
 
   void init();
 };
