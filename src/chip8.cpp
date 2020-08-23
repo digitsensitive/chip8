@@ -6,7 +6,7 @@
 
 // Note that only the first four bits (nibble) are used for drawing a number or
 // character.
-unsigned char chip8_fontset[5 * 16] = {
+u8 chip8_fontset[FONTSET_SIZE] = {
     0xF0, 0x90, 0x90, 0x90, 0xF0,  // 0
     0x20, 0x60, 0x20, 0x20, 0x70,  // 1
     0xF0, 0x10, 0xF0, 0x80, 0xF0,  // 2
@@ -60,7 +60,7 @@ void Chip8::init() {
   };
 
   // Load fontset
-  for (int i = 0; i < 80; ++i) {
+  for (int i = 0; i < FONTSET_SIZE; ++i) {
     memory[i] = chip8_fontset[i];
   };
 

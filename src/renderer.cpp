@@ -76,7 +76,7 @@ void Renderer::clear() {
 }
 
 void Renderer::render(const Chip8 &c8) {
-  SDL_SetRenderDrawColor(mRenderer, 255, 0, 0, 255);
+  SDL_SetRenderDrawColor(mRenderer, 255, 255, 255, 255);
   for (int y = 0; y < 32; ++y) {
     for (int x = 0; x < 64; ++x) {
       if (c8.gfx[(y * 64) + x] == 0) {

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "chip8_const.h"
 #include "chip8_types.h"
 
 class Chip8 {

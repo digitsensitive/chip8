@@ -1,0 +1,1 @@
+static const int FONTSET_SIZE = 80;
